@@ -63,6 +63,13 @@ int* create_new_array_with_random_elements(int size)
 
 void initialize_array_from_user(int *nums, int size)
 {
+    for (int i = 0; i < size; i++)
+    {
+        size=rand()%100;
+        // nums[i]=rand()%100;
+        int* nums=(int*)malloc(size*sizeof(int));
+        nums[i]=rand()%100;
+    }
 }
 
 void initialize_array_with_random_elements(int *nums, int size)
