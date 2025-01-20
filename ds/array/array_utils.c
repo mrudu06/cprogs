@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "array_utils.h"
 
 int get_array_size_from_user()
 {
@@ -19,7 +20,7 @@ int get_array_size_from_user()
     return size;
 }
 
-int* get_array_elements_from_user(int size)
+int* create_new_array_with_user_input(int size)
 {
     int *nums_ptr = (int*)malloc(size * sizeof(int));
     if (nums_ptr == NULL)
@@ -60,7 +61,20 @@ int* create_new_array_with_random_elements(int size)
     return array;
 }
 
-void rotate_array(int* nums, int size, int number_of_times_rotate)
+void initialize_array_from_user(int *nums, int size)
+{
+}
+
+void initialize_array_with_random_elements(int *nums, int size)
+{
+}
+
+int *clone_array(int *nums, int size)
+{
+    return NULL;
+}
+
+void rotate_array(int *nums, int size, int number_of_times_rotate)
 {
     for (int count = 0; count < number_of_times_rotate; count++)
     {
@@ -81,24 +95,4 @@ void print_array(int *nums, int size)
         printf("%d ", nums[i]);
     }
     printf("\n");
-}
-
-int main()
-{
-    int number_of_times_rotate;
-    srand(time(NULL));
-    
-    int size = get_array_size_from_user();
-    int *array = get_array_elements_from_user(size);
-
-    printf("Enter the number of times to rotate the array: ");
-    scanf("%d", &number_of_times_rotate);
-
-    rotate_array(array, size, number_of_times_rotate);
-
-    print_array(array, size);
-
-    
-
-    return 0;
 }
